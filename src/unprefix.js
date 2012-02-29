@@ -132,7 +132,7 @@
       { lookin: document, find: "currentFullscreenElement" },
       { lookin: document, find: "fullscreen" },
       { lookin: document, find: "hidden" },
-      { lookin: document, find: "visitbilityState" },
+      { lookin: document, find: "visibilityState" },
 
       // boilerplate
       { lookin: {}, find: "foo" }
