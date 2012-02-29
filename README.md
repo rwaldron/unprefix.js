@@ -44,14 +44,17 @@ Unprefix.js supports these APIs:
 
 
 **[URL](http://dvcs.w3.org/hg/url/raw-file/tip/Overview.html#interface-url)**
+
 > The URL object can be used by scripts to programmatically construct, parse, and resolve URLs.
 
 
 **[Blob](http://www.w3.org/TR/FileAPI/#dfn-Blob)**
+
 > This interface represents immutable raw data. It provides a method to slice data objects between ranges of bytes into further chunks of raw data. It also provides an attribute representing the size of the chunk of data. The File interface inherits from this interface.
 
 
 **[BlobBuilder](http://dev.w3.org/2009/dap/file-system/file-writer.html#idl-def-BlobBuilder)**
+
 > This interface is used to build a Blob from a String.
 
 
