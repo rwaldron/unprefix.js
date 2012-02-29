@@ -42,6 +42,7 @@ var url = URL.createObjectURL( foo );
 
 Unprefix.js supports these APIs:
 
+### window
 
 **[URL](http://dvcs.w3.org/hg/url/raw-file/tip/Overview.html#interface-url)**
 
@@ -62,6 +63,9 @@ Unprefix.js supports these APIs:
 
 >
 
+
+### navigator
+
 **[navigator.getUserMedia]()**
 
 >
@@ -78,7 +82,9 @@ Unprefix.js supports these APIs:
 
 >
 
-// document apis
+
+### document
+
 **[document.cancelFullscreen]()**
 
 >
