@@ -58,6 +58,49 @@ Unprefix.js supports these APIs:
 > This interface is used to build a Blob from a String.
 
 
+**[performance]()**
+
+>
+
+**[navigator.getUserMedia]()**
+
+>
+
+**[navigator.geolocation]()**
+
+>
+
+**[navigator.pointer]()**
+
+>
+
+**[navigator.onLine]()**
+
+>
+
+// document apis
+**[document.cancelFullscreen]()**
+
+>
+
+**[document.currentFullscreenElement]()**
+
+>
+
+**[document.fullscreen]()**
+
+>
+
+**[document.hidden]()**
+
+>
+
+**[document.visitbilityState]()**
+
+>
+
+
+
 
 ## Examples
 _(Coming soon)_
