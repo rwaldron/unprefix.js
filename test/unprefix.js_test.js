@@ -56,6 +56,18 @@
     );
   });
 
+  test("supported()", 1, function() {
+    var unprefixed = window.unprefix(),
+        api = unprefixed.translate( window, "notGonnaFindIt" );
+
+    equal(
+      window.unprefix.supported.notGonnaFindIt,
+      false,
+      "notGonnaFindIt is not supported"
+    );
+  });
+
+
   module("Array methods", {
     setup: function() {
       window.MozFoo = {};
