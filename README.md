@@ -2,6 +2,10 @@
 
 Unprefixed JavaScript APIs
 
+Compressed size: 784 bytes gzipped (1703 bytes minified).
+
+
+
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
