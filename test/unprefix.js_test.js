@@ -3,7 +3,7 @@
 /*global notDeepEqual:true, strictEqual:true, notStrictEqual:true, raises:true*/
 (function( window ) {
 
-  window.unprefixed = window.unprefix();
+  // window.unprefixed = window.unprefix();
 
   module("Unprefix", {
     setup: function() {
@@ -12,16 +12,13 @@
   });
 
   test("is initialized", 1, function() {
-    // a global Unprefix instance has been initialized
+    var unprefixed = window.unprefix();
 
     ok( unprefixed, "unprefix instance" );
-
-    // ok(true);
   });
 
   test("expected properties", 1, function() {
-    // a global Unprefix instance has been initialized
-
+    var unprefixed = window.unprefix();
     ok(
       !!~unprefixed.join("").indexOf("-moz--ms--o--webkit-MSMozOWebKitWebkitmozmsowebkit"),
       "Is a list of prefixes"
@@ -39,12 +36,11 @@
       window.WebKitFoo = {};
       window.WebkitBar = {};
       window.webkitBaz = {};
-
-      unprefixed = window.unprefix();
     }
   });
 
   test("expand()", 1, function() {
+    var unprefixed = window.unprefix();
     ok(
       !!~unprefixed.expand("foo").indexOf("foo -moz-foo -ms-foo -o-foo -webkit-foo MSfoo Mozfoo Ofoo WebKitfoo Webkitfoo mozfoo msfoo ofoo webkitfoo"),
       "string of expanded prefixes"
@@ -52,6 +48,7 @@
   });
 
   test("translate()", 1, function() {
+    var unprefixed = window.unprefix();
     deepEqual(
       unprefixed.translate( window, "foo" ),
       {},
@@ -70,13 +67,12 @@
       window.WebKitFoo = {};
       window.WebkitBar = {};
       window.webkitBaz = {};
-
-      unprefixed = window.unprefix();
     }
   });
 
   test("push()", 1, function() {
-    var length = unprefixed.length;
+    var unprefixed = window.unprefix(),
+        length = unprefixed.length;
 
     unprefixed.push("khtml");
 

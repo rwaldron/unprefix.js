@@ -1,5 +1,5 @@
-/*! Noprefix.js - v0.1.0 - 2/29/2012
-* https://github.com/rick/unprefix.js
+/*! Noprefix.js - v0.1.0 - 3/9/2012
+* https://github.com/rwldrn/unprefix.js
 * Copyright (c) 2012 Rick Waldron <waldron.rick@gmail.com>; Licensed MIT */
 
 (function( window ) {
@@ -48,7 +48,7 @@
   };
 
   // Borrow methods from Array.prototype
-  [ "push", "join", "split" ].forEach(function( method ) {
+  [ "pop", "shift", "unshift", "slice", "push", "join" ].forEach(function( method ) {
     Unprefix.prototype[ method ] = Array.prototype[ method ];
   });
 
@@ -110,6 +110,10 @@
   // If this is an actual window with a document,
   // Initialize awesome new APIs
   if ( window.document ) {
+    // Like the redundant lines above, this might *look* like
+    // "wet" code, but I think it's a good way to very clearly
+    // indicate which APIs we're going to auto-unprefix. It's
+    // also very grep/control-f friendly.
     [
       // window apis
       { lookin: window, find: "URL" },
@@ -128,7 +132,7 @@
       { lookin: document, find: "currentFullscreenElement" },
       { lookin: document, find: "fullscreen" },
       { lookin: document, find: "hidden" },
-      { lookin: document, find: "visitbilityState" },
+      { lookin: document, find: "visibilityState" },
 
       // boilerplate
       { lookin: {}, find: "foo" }
