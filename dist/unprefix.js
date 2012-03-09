@@ -19,6 +19,9 @@
           // api: found
         }
       },
+      supported = {
+        // api: bool
+      },
       temp = [];
 
    temp.concat(
@@ -75,6 +78,9 @@
       return object[ prefixes.cached[ api ] ];
     }
 
+    // Assume no support, wait to be proven wrong
+    supported[ api ] = false;
+
     // If we received a lowercased api/prop, create an
     // alternate uppercase api to lookup
     if ( api[0] === api[0].toLowerCase() ) {
@@ -89,6 +95,7 @@
       if ( test && test in object ) {
         //  Cache the found API
         prefixes.cached[ api ] = test;
+        supported[ api ] = true;
 
         return object[ test ];
       }
@@ -147,6 +154,8 @@
     window.unprefix.cached = function( key ) {
       return prefixes.cached[ key ] || prefixes.cached;
     };
+
+    window.unprefix.supported = supported;
   }
 
 }( this ));
