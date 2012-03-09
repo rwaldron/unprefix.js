@@ -114,6 +114,10 @@
   // If this is an actual window with a document,
   // Initialize awesome new APIs
   if ( window.document ) {
+    // Like the redundant lines above, this might *look* like
+    // "wet" code, but I think it's a good way to very clearly
+    // indicate which APIs we're going to auto-unprefix. It's
+    // also very grep/control-f friendly.
     [
       // window apis
       { lookin: window, find: "URL" },
