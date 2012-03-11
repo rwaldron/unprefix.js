@@ -12,7 +12,7 @@ config.init({
     'dist/unprefix.js': ['<banner>', '<file_strip_banner:src/unprefix.js>']
   },
   min: {
-    'dist/unprefix.js.min.js': ['<banner>', 'dist/unprefix.js']
+    'dist/unprefix.min.js': ['dist/unprefix.js']
   },
   qunit: {
     files: ['test/**/*.html']

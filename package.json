@@ -1,7 +1,7 @@
 {
   "name": "unprefix.js",
-  "title": "Noprefix.js",
-  "description": "Unprefixed JavaScript APIs",
+  "title": "Unprefix.js",
+  "description": "Unprefixing JavaScript APIs, for a better future.",
   "version": "0.1.0",
   "homepage": "https://github.com/rwldrn/unprefix.js",
   "author": {

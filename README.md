@@ -1,16 +1,16 @@
 # Unprefix.js
 
-Unprefixed JavaScript APIs
+Unprefixing JavaScript APIs, for a better future.
 
-Compressed size: 784 bytes gzipped (1703 bytes minified).
+Compressed size: 700 bytes gzipped (1595 bytes minified).
 
 
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/rick/unprefix.js/master/dist/unprefix.js.min.js
-[max]: https://raw.github.com/rick/unprefix.js/master/dist/unprefix.js.js
+[min]: https://raw.github.com/rick/unprefix.js/master/dist/unprefix.min.js
+[max]: https://raw.github.com/rick/unprefix.js/master/dist/unprefix.js
 
 In your web page:
 

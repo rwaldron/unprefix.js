@@ -1,4 +1,4 @@
-/*! Noprefix.js - v0.1.0 - 3/9/2012
+/*! Unprefix.js - v0.1.0 - 3/11/2012
 * https://github.com/rwldrn/unprefix.js
 * Copyright (c) 2012 Rick Waldron <waldron.rick@gmail.com>; Licensed MIT */
 
