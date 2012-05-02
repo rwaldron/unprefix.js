@@ -8,16 +8,24 @@
 
 (function( window ) {
 
-  var unprefix,
-      Unprefix,
+  var Unprefix, unprefix,
+      raw = [
+
+        // This may appear redundant, possibly even unnecessary,
+        // but it's much easier to keep track of all prefixes
+        // that are being tested, when they are presented in a
+        // readable and maintainable format.
+
+        // CSS
+        " -moz- -ms- -o- -webkit- ",
+
+        // DOM
+        "moz ms o O webkit Webkit",
+
+        // API
+        "Moz MS O WebKit"
+      ],
       prefixes = {
-        raw: {
-          // These may be redundant, but much easier to
-          // keep track of what prefixes we are testing with
-          css: " -moz- -ms- -o- -webkit- ",
-          dom: "moz ms o O webkit Webkit",
-          api: "Moz MS O WebKit"
-        },
         all: [],
         cached: {
           // api: found
@@ -25,17 +33,12 @@
       },
       supported = {
         // api: bool
-      },
-      temp = [];
+      };
 
-   temp.concat(
-
-     // This kind of sucks...
-     prefixes.raw.css.split(" "),
-     prefixes.raw.dom.split(" "),
-     prefixes.raw.api.split(" ")
-
-   ).forEach(function( value ) {
+  // Do the dirty join/split here instead of in the variable
+  // declaration list. This keeps the initialized var list
+  // a little less crowded.
+  raw.join(" ").split(" ").forEach(function( value ) {
     // Skip prefixes that are already accounted for
     if ( !~prefixes.all.indexOf(value) ) {
       prefixes.all.push( value );
@@ -67,6 +70,9 @@
   // Returns a prefixed expanded string of properties
   Unprefix.prototype.expand = function( prop ) {
     return this.join( prop + " " ) + prop;
+    // eg. prop = "foo"
+    // "foo Foo -moz-Foo -ms-Foo -o-Foo -webkit-Foo MSFoo \
+    // MozFoo OFoo WebKitFoo WebkitFoo mozFoo msFoo oFoo webkitFoo"
   };
 
   // Define the main translation function
@@ -127,33 +133,48 @@
     // also very grep/control-f friendly.
     [
       // window apis
-      { lookin: window, find: "URL" },
-      { lookin: window, find: "Blob" },
-      { lookin: window, find: "BlobBuilder" },
-      { lookin: window, find: "performance" },
+      { lookin: window,
+        find: [
+          "URL",
+          "Blob",
+          "BlobBuilder",
+          "performance"
+        ]
+      },
 
       // navigator apis
-      { lookin: navigator, find: "battery" },
-      { lookin: navigator, find: "getUserMedia" },
-      { lookin: navigator, find: "geolocation" },
-      { lookin: navigator, find: "pointer" },
-      { lookin: navigator, find: "onLine" },
+      { lookin: navigator,
+        find: [
+          "battery",
+          "getUserMedia",
+          "geolocation",
+          "pointer",
+          "onLine"
+        ]
+      },
 
       // document apis
-      { lookin: document, find: "cancelFullscreen" },
-      { lookin: document, find: "currentFullscreenElement" },
-      { lookin: document, find: "fullscreen" },
-      { lookin: document, find: "hidden" },
-      { lookin: document, find: "visibilityState" },
+      { lookin: document,
+        find: [
+          "cancelFullscreen",
+          "currentFullscreenElement",
+          "fullscreen",
+          "hidden",
+          "visibilityState"
+        ]
+      }
 
       // boilerplate
-      { lookin: {}, find: "foo" }
+      // { lookin: {}, find: "foo" }
 
     ].forEach(function( api ) {
 
-      // Assign the spec name to the correct api object
-      // eg. window.URL = window.webkitURL
-      api.lookin[ api.find ] = instance.translate( api.lookin, api.find );
+      // Assign the webapi spec name to the correct api object
+      // eg. window.URL = { window.webkitURL }
+
+      api.find.forEach(function( webapi ) {
+        api.lookin[ webapi ] = instance.translate( api.lookin, webapi );
+      });
     });
 
     window.unprefix.cached = function( key ) {
