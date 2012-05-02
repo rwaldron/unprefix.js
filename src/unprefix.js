@@ -133,6 +133,7 @@
       { lookin: window, find: "performance" },
 
       // navigator apis
+      { lookin: navigator, find: "battery" },
       { lookin: navigator, find: "getUserMedia" },
       { lookin: navigator, find: "geolocation" },
       { lookin: navigator, find: "pointer" },
