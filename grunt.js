@@ -55,7 +55,8 @@ module.exports = function(grunt) {
         console: true,
         node: true,
         exports: true,
-        module: true
+        module: true,
+        performance: true
       }
     },
     uglify: {

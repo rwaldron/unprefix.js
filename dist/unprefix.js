@@ -1,4 +1,4 @@
-/*! Unprefix.js - v0.2.0 - 5/2/2012
+/*! Unprefix.js - v0.2.0 - 5/29/2012
 * https://github.com/rwldrn/unprefix.js
 * Copyright (c) 2012 Rick Waldron <waldron.rick@gmail.com>; Licensed MIT */
 
@@ -138,6 +138,14 @@
         ]
       },
 
+      // depends on window apis
+      // performance
+      { lookin: (performance = window.performance || {}),
+        find: [
+          "now"
+        ]
+      },
+
       // navigator apis
       { lookin: navigator,
         find: [
@@ -164,10 +172,8 @@
       // { lookin: {}, find: "foo" }
 
     ].forEach(function( api ) {
-
       // Assign the webapi spec name to the correct api object
       // eg. window.URL = { window.webkitURL }
-
       api.find.forEach(function( webapi ) {
         api.lookin[ webapi ] = instance.translate( api.lookin, webapi );
       });

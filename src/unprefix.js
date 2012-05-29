@@ -142,6 +142,14 @@
         ]
       },
 
+      // depends on window apis
+      // performance
+      { lookin: (performance = window.performance || {}),
+        find: [
+          "now"
+        ]
+      },
+
       // navigator apis
       { lookin: navigator,
         find: [
@@ -168,10 +176,8 @@
       // { lookin: {}, find: "foo" }
 
     ].forEach(function( api ) {
-
       // Assign the webapi spec name to the correct api object
       // eg. window.URL = { window.webkitURL }
-
       api.find.forEach(function( webapi ) {
         api.lookin[ webapi ] = instance.translate( api.lookin, webapi );
       });
