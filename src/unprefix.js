@@ -24,7 +24,9 @@
 
         // API
         "Moz MS O WebKit"
-      ],
+
+      ].join(" ").split(" "),
+
       prefixes = {
         all: [],
         cached: {
@@ -38,12 +40,14 @@
   // Do the dirty join/split here instead of in the variable
   // declaration list. This keeps the initialized var list
   // a little less crowded.
-  raw.join(" ").split(" ").forEach(function( value ) {
+  prefixes.all = raw.reduce(function( initial, value ) {
     // Skip prefixes that are already accounted for
-    if ( !~prefixes.all.indexOf(value) ) {
-      prefixes.all.push( value );
+    if ( initial.indexOf(value) === -1 ) {
+      initial.push(value);
     }
-  });
+
+    return initial;
+  }, []);
 
   prefixes.all.sort();
 
